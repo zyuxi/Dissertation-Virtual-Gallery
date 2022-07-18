@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public string loadLevel;
+    public GameObject player;
 
     private void OnMouseDown()
     {
-        SceneManager.LoadScene(loadLevel);
-        DontDestroyOnLoad(transform.gameObject);
+        Application.LoadLevel (loadLevel);
+        PlayerPrefs.SetFloat("playerPosX", player.transform.position.x);
+        PlayerPrefs.SetFloat("playerPosY", player.transform.position.y);
+        PlayerPrefs.SetFloat("playerPosZ", player.transform.position.z);
     }
 }
